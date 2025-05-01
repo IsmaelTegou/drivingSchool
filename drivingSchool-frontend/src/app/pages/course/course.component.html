@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card my-4">
+      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+        <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+          <h6 class="text-white text-capitalize ps-3">Courses Table</h6>
+        </div>
+      </div>
+      <div class="card-body px-0 pb-2">
+        <div class="table-responsive p-0">
+          <table class="table table-hover align-middle mb-0 text-center">
+            <thead>
+            <tr>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-start ps-4">Name</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Localisation</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">At_planning</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Instructor</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+              @for (course of courses; track $index) {
+                <tr>
+                  <td class="text-start ps-4">
+                    <div class="d-flex align-items-center">
+                      @if (course.typeCourse === 'practice') {
+                        <img src="../assets/img/courseP.jpeg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                      }
+                      @else {
+                        <img src="../assets/img/course.jpeg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                      }
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-0 text-sm">{{ course.name }}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ course.location }}</p>
+                  </td>
+                  <td>
+                    @if (course.typeCourse === 'practice') {
+                      <span class="badge badge-sm bg-gradient-success text-uppercase">{{ course.typeCourse }}</span>
+                    }
+                    @else {
+                      <span class="badge badge-sm bg-gradient-info text-uppercase">{{ course.typeCourse }}</span>
+                    }
+                  </td>
+
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ course.titlePlanning }}</p>
+                  </td>
+
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ course.lastnameInstructor }}</p>
+                  </td>
+
+                  <td>
+                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" title="Edit user">
+                      Edit
+                    </a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

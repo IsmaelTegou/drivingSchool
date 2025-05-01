@@ -1,0 +1,9 @@
+export interface Candidat {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  typeCandidat: string;
+  password: string;
+}
