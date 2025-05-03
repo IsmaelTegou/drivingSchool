@@ -14,4 +14,9 @@ export class CourseService {
   getAllCourses(){
     return this.http.get( `${this.apiUrl}/findAllCourses`);
   }
+
+  deleteCourse(course: any) {
+    console.log(course);
+    return this.http.delete( `${this.apiUrl}/deleteCourse/${course.id}`);
+  }
 }

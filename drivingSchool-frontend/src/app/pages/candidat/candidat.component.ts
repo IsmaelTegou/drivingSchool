@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { CandidatService } from '../../service/candidat.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-candidat',
   standalone: true,
-  imports: [],
+  imports: [
+  ],
   templateUrl: './candidat.component.html',
   styleUrl: './candidat.component.css'
 })
 export class CandidatComponent {
   public candidats: any;
- constructor(private candidatService: CandidatService){
+ constructor(private candidatService: CandidatService, private router: Router) {
   this.getAllCandidat();
 }
 
@@ -32,5 +34,22 @@ export class CandidatComponent {
        console.log(error);
      }
    });
+  }
+
+  deleteCandidate(candidat: any) {
+  const conf =confirm('Are you sure you want to delete this candidat?');
+  if (conf) {
+    this.candidatService.deleteCandidate(candidat).subscribe({
+      next: data => {
+        this.getAllCandidat();
+      }, error: error => {
+        console.log(error);
+      }
+    })
+  }
+  }
+
+  addCandidate() {
+    this.router.navigateByUrl('new-candidate');
   }
 }

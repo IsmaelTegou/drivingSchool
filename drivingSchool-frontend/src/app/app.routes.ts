@@ -12,6 +12,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CandidatComponent } from './pages/candidat/candidat.component';
 import {CourseComponent} from './pages/course/course.component';
 import {PlanningComponent} from './pages/planning/planning.component';
+import {NewCandidateComponent} from './pages/new-candidate/new-candidate.component';
 
 
 export const routes: Routes = [
@@ -28,6 +29,7 @@ export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'courses', component: CourseComponent },
     { path: 'plannings', component: PlanningComponent },
+    { path: 'new-candidate', component: NewCandidateComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' }// redirection vers login au démarrage
   ];
 

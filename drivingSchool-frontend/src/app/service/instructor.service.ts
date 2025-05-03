@@ -13,4 +13,9 @@ export class InstructorService {
   getAllInstructors(){
     return this.http.get( `${this.apiUrl}/findAllInstructors`);
   }
+
+  deleteInstructor(instructor: any) {
+    console.log(instructor);
+    return this.http.delete( `${this.apiUrl}/deleteInstructor/${instructor.id}`);
+  }
 }

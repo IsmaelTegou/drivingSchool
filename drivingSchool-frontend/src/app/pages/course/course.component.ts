@@ -26,4 +26,16 @@ export class CourseComponent {
     })
   }
 
+  deleteCourse(course: any) {
+    const conf = confirm("Are you sure you want to delete this course?");
+    if (conf) {
+      this.courseService.deleteCourse(course).subscribe({
+        next: data => {
+          this.getAllCourses();
+        }, error: error => {
+          console.log(error);
+        }
+      })
+    }
+  }
 }

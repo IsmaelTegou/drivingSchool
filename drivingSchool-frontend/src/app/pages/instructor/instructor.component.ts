@@ -25,5 +25,16 @@ export class InstructorComponent {
       }
     });
   }
-
+  deleteInstructor(instructor: any){
+ const conf = confirm("Are you sure you want to delete this instructor?");
+ if (conf) {
+   this.instructorService.deleteInstructor(instructor).subscribe({
+     next: data => {
+       this.getAllInstructors();
+     }, error: error => {
+       console.log(error);
+     }
+   })
+ }
+  }
 }
