@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CourseService} from '../../service/course.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -12,7 +13,7 @@ export class CourseComponent {
 
   courses: any;
 
-  constructor(private courseService: CourseService) {
+  constructor(private courseService: CourseService, private router: Router) {
     this.getAllCourses();
   }
 
@@ -37,5 +38,9 @@ export class CourseComponent {
         }
       })
     }
+  }
+
+  addCourse() {
+    this.router.navigateByUrl('new-course');
   }
 }

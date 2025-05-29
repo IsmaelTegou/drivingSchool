@@ -2,8 +2,11 @@
   <div class="col-12">
     <div class="card my-4">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-        <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+        <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
           <h6 class="text-white text-capitalize ps-3">Planning Table</h6>
+           <button class="btn btn-primary me-3" (click)="addPlanning(plannings)">
+            <i class="fas fa-plus"></i>
+            Add a new planning</button>
         </div>
       </div>
       <div class="card-body px-0 pb-2">
@@ -11,34 +14,64 @@
           <table class="table table-hover align-middle mb-0 text-center">
             <thead>
             <tr>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-start ps-4">Name</th>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Surname</th>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-start ps-4">Planning Name</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">lastname Admin</th>
+
+               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" >Courses Names</th>
+
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" >Actions</th>
+              
             </tr>
+            
             </thead>
             <tbody>
-              @for (instructor of planning; track $index) {
+              @for (planning of plannings; track $index) {
                 <tr>
                   <td class="text-start ps-4">
                     <div class="d-flex align-items-center">
                       <img src="../assets/img/planning.png" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">{{ instructor.firstName }}</h6>
-                        <p class="text-xs text-secondary mb-0">{{ instructor.email }}</p>
+                        <h6 class="mb-0 text-sm">{{ planning.title }}</h6>
+                        <p class="text-xs text-secondary mb-0">{{ planning.title }}</p>
                       </div>
+                   </div>
+                  </td>
+                   <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ planning.lastnameAdmin }}</p>
+                  </td>
+
+                    <td>
+                      <div class="accordion">
+                       @for (item of planning.coursesNames;  track $index) {
+                        <div class="accordion-item ">
+                         <button class="accordion-button collapsed" type="button">
+                          <span class="badge badge-sm bg-gradient-success text-uppercase me-2">{{ item }}</span>
+                             Détails du cours
+                              </button>
+      
+                           <div class="accordion-body">
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                             <div class="accordion-body">
+                               <strong>jjk</strong>
+                             </div>
+                           </div>
+                          </div>
+                        </div>
+                      } 
                     </div>
+
+                    
+                  </td>
+                  
+                    
+                   <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ planning.title }}</p>
                   </td>
 
                   <td>
-                    <p class="text-xs font-weight-bold mb-0">{{ instructor.lastName }}</p>
-                  </td>
-
-                  <td>
-                    <p class="text-xs font-weight-bold mb-0">{{ instructor.phone }}</p>
-                  </td>
-                  <td>
-                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" title="Edit user">
+                    <a href="javascript:;" (click)="editPlanning(planning)" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" title="Edit user">
                       Edit
                     </a>
                   </td>
@@ -48,6 +81,7 @@
                     </a>
                   </td>
                 </tr>
+                
               }
             </tbody>
           </table>

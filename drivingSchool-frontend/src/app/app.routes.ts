@@ -13,6 +13,13 @@ import { CandidatComponent } from './pages/candidat/candidat.component';
 import {CourseComponent} from './pages/course/course.component';
 import {PlanningComponent} from './pages/planning/planning.component';
 import {NewCandidateComponent} from './pages/new-candidate/new-candidate.component';
+import {NewCourseComponent} from './pages/new-course/new-course.component';
+import {NewPaymentComponent} from './pages/new-payment/new-payment.component';
+import { NewInstructorComponent } from './pages/new-instructor/new-instructor.component';
+import { EditCandidateComponent } from './pages/edit-candidate/edit-candidate.component';
+import { EditInstructorComponent } from './pages/edit-instructor/edit-instructor.component';
+import { NewPlanningComponent } from './pages/new-planning/new-planning.component';
+import { EditPlanningComponent } from './pages/edit-planning/edit-planning.component';
 
 
 export const routes: Routes = [
@@ -30,6 +37,13 @@ export const routes: Routes = [
     { path: 'courses', component: CourseComponent },
     { path: 'plannings', component: PlanningComponent },
     { path: 'new-candidate', component: NewCandidateComponent },
+    { path: 'new-course', component: NewCourseComponent},
+    { path: 'new-payment', component: NewPaymentComponent },
+     { path: 'new-planning', component: NewPlanningComponent },
+    { path: 'new-instructor', component: NewInstructorComponent},
+    { path: 'edit-candidate/:id', component: EditCandidateComponent},
+    { path: 'edit-instructor/:id', component: EditInstructorComponent},
+     { path: 'edit-planning/:id', component: EditPlanningComponent},
     { path: '', redirectTo: 'login', pathMatch: 'full' }// redirection vers login au démarrage
   ];
 

@@ -4,7 +4,9 @@
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
           <h6 class="text-white text-capitalize ps-3">Candidates Table</h6>
-          <button class="btn btn-primary me-3" (click)="addCandidate()">Add a new candidate</button>
+          <button class="btn btn-primary me-3" (click)="addCandidate()">
+            <i class="fas fa-plus"></i>
+            Add a new candidate</button>
         </div>
       </div>
       <div class="card-body px-0 pb-2">
@@ -50,13 +52,14 @@
                   </td>
 
                   <td>
-                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" title="Edit user">
+                      <a href="javascript:;" (click)="editCandidate(candidat)" class="text-secondary font-weight-bold text-xs " data-toggle="tooltip"  title="Edit user">
                       Edit
-                    </a>
+                    </a> 
                   </td>
                   <td>
-                    <a href="javascript:;" (click)="deleteCandidate(candidat)" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" title="Edit user">
-                      Delete
+                    <a href="javascript:;" (click)="deleteCandidate(candidat)" class="text-secondary text-danger font-weight-bold text-xs" data-toggle="tooltip" title="Delete user">
+                      <i class="material-symbols-rounded text-sm me-2">delete</i>
+                      delete
                     </a>
                   </td>
                 </tr>

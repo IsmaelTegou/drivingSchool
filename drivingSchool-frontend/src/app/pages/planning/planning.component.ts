@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import{Planning} from '../../models/planning';
 import{PlanningService} from '../../service/planning.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-planning',
   standalone: true,
@@ -10,14 +10,15 @@ import{PlanningService} from '../../service/planning.service';
   styleUrl: './planning.component.css'
 })
 export class PlanningComponent {
-  public planning: any;
-  constructor(private planningService: PlanningService) {
+  public plannings: any;
+  constructor(private planningService: PlanningService, private route: Router) {
     this.getAllPlanning();
   }
   getAllPlanning(){
     this.planningService.getAllPlannings().subscribe({
       next: data => {
-        this.planning = data;
+        this.plannings = data;
+        console.log(this.plannings);
       }, error: error => {
         console.log(error);
       }
@@ -36,4 +37,10 @@ export class PlanningComponent {
       })
     }
   }
+
+  addPlanning(planning: Planning){
+     this.route.navigateByUrl('new-planning');
+  }
+
+  editPlanning(planning: Planning){}
 }

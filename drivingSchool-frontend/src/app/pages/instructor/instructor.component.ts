@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {InstructorService} from '../../service/instructor.service';
+import { Router } from '@angular/router';
+import { Instructor } from '../model/Instructo.model';
 
 @Component({
   selector: 'app-instructor',
@@ -11,8 +13,9 @@ import {InstructorService} from '../../service/instructor.service';
 export class InstructorComponent {
 
   public instructors: any;
+  id: string= "";
 
-  constructor(private instructorService: InstructorService){
+  constructor(private instructorService: InstructorService, private router: Router){
       this.getAllInstructors();
   }
 
@@ -37,4 +40,15 @@ export class InstructorComponent {
    })
  }
   }
+  
+  addInstructor() {
+    this.router.navigateByUrl('new-instructor');
+  }
+
+  editInstructor(instructor: Instructor){
+     const id = '' + instructor.id
+      this.router.navigateByUrl('edit-instructor/'+btoa(id));
+  }
+
+  findInstructorById(id: string){}
 }

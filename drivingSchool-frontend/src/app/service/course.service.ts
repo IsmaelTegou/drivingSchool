@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Course} from '../pages/model/Course.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +20,10 @@ export class CourseService {
   deleteCourse(course: any) {
     console.log(course);
     return this.http.delete( `${this.apiUrl}/deleteCourse/${course.id}`);
+  }
+
+  saveCourse(course: Course){
+    console.log(course);
+    return this.http.post( `${this.apiUrl}/createCourse`, course);
   }
 }

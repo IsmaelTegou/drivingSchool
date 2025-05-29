@@ -22,4 +22,11 @@ export class CandidatService {
     console.log(candidat);
     return this.http.post( `${this.apiUrl}/createCandidate`, candidat);
   }
+  editCandidate(candidat:Candidate){
+    console.log(candidat);
+    return this.http.put( `${this.apiUrl}/updateCandidate/${candidat.id}`, candidat);
+  }
+  findCandidateById(id : String){
+    return this.http.get( `${this.apiUrl}/findCandidateById/${id}`);
+  }
 }

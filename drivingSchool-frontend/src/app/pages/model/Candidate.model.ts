@@ -1,4 +1,5 @@
 export class Candidate {
+  public id: string | undefined;
   public firstName: number | undefined;
   public lastName: string | undefined;
   public email: string | undefined;

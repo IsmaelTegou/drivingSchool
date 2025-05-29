@@ -16,5 +16,14 @@ export class PlanningService {
     console.log(planning);
     return this.http.delete(`${this.apiUrl}/deletePlannings/${planning.id}`);
   }
+
+  savePlanning(planning: Planning){
+    console.log(planning);
+    return this.http.post(`${this.apiUrl}/createPlanning`,planning);
+  }
+  editPlanning(planning: Planning){
+    console.log(planning);
+    return this.http.put(` ${this.apiUrl}/updatePlanning/${planning.id}`, planning);
+  }
 }
 

@@ -73,6 +73,7 @@ public class CarServiceImplement implements CarService {
 
     @Override
     public List<CarResponseDTO> findAllCars() {
+
         return carRepository.findAll().stream().map(this::mapToCarResponseDTO).collect(Collectors.toList());
     }
 

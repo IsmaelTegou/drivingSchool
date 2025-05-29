@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CandidatService } from '../../service/candidat.service';
 import {Router} from '@angular/router';
+import { Candidat } from '../../models/candidat';
+import { Candidate } from '../model/Candidate.model';
+
 
 @Component({
   selector: 'app-candidat',
@@ -51,5 +54,11 @@ export class CandidatComponent {
 
   addCandidate() {
     this.router.navigateByUrl('new-candidate');
+  }
+
+  editCandidate(candidate: Candidate){
+       const id = '' + candidate.id
+      this.router.navigateByUrl('edit-candidate/'+btoa(id));
+          
   }
 }
